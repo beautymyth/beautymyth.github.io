@@ -1,10 +1,10 @@
 # Site settings
 title: BeautyMyth
-SEOTitle: 美丽神话的博客 | BeautyMyth
+SEOTitle: BeautyMyth's Blog
 header-img: img/home-bg.jpg
 email: 903628963@qq.com
-description: "ff"
-keyword: " 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
+description: ""
+keyword: " "
 url: "https://beautymyth.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
