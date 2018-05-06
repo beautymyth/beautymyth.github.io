@@ -135,7 +135,7 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <div>{{ site.tags[0][0] }}</div>
+                        <div>{{ 'tobi' | upcase }}</div>
                         {% for tag in site.tags %}
                         {% if tag[1].size > {{site.featured-condition-size}} %}
                         <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
