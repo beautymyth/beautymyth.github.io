@@ -135,7 +135,6 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <p>{{ 4|prepend:'0' }}</p>
                         {% assign tags_count_len = 8 %}
                         {% assign tags_count = "" %}
                         {% for tag in site.tags %}
@@ -148,7 +147,7 @@ layout: default
                         {% endfor %}
 
                         <p>{{ tags_count }}</p>
-                        <p>{{ tags_count|split:','|uniq|join:',' }}</p>
+                        <p>{{ tags_count|split:','|uniq|sort_natural|join:',' }}</p>
 
                         <p>{{ '001' | floor }}</p>
                         {% if '001' == '1' %}
