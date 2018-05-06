@@ -149,6 +149,7 @@ layout: default
                         {% assign tags_count = tags_count|split:','|uniq|sort_natural|reverse %}
                         {% for count in tags_count %}
                             {% assign count = count | floor %}
+                            <p>{{count}}</p>
                             {% for tag in site.tags %}
                                 {% if tag[1].size ==count %}
                                 <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
