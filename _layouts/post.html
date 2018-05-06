@@ -140,15 +140,15 @@ layout: default
                         {% assign tags_count = "" %}
                         {% for tag in site.tags %}
                             {% assign tags_size_len = tag[1].size|prepend:'0'|size %}
-                            <p>{{ tags_size_len }}</p>
                             {% assign tags_size_str = tag[1].size %}
                             {% for i in (tags_size_len..tags_count_len) %}
                                 {% assign tags_size_str = tags_size_str|prepend:'0' %}
                             {% endfor %}
-                            {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
+                        {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
                         {% endfor %}
 
-                        <p>{{ tags_count|split:','|uniq }}</p>
+                        <p>{{ tags_count }}</p>
+                        <p>{{ tags_count|split:','|uniq|join:',' }}</p>
 
                         <p>{{ '001' | floor }}</p>
                         {% if '001' == '1' %}
