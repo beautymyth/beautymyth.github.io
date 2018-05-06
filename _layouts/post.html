@@ -150,6 +150,9 @@ layout: default
                         {% for count in tags_count %}
                             {% assign count = count | floor %}
                             <p>{{count}}</p>
+                            <p>{{count | floor}}</p>
+                            <p>{{count|plus:0 | floor}}</p>
+                            <p>{{'00000002' | floor}}</p>
                             {% for tag in site.tags %}
                                 {% if tag[1].size ==count %}
                                 <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
