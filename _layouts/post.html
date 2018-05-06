@@ -147,7 +147,7 @@ layout: default
                         {% endfor %}
 
                         <p>{{ tags_count }}</p>
-                        <p>{{ tags_count|split:','|uniq|sort_natural|join:',' }}</p>
+                        <p>{{ tags_count|split:','|uniq|sort_natural|reverse|join:',' }}</p>
 
                         <p>{{ '001' | floor }}</p>
                         {% if '001' == '1' %}
@@ -155,9 +155,6 @@ layout: default
                         {% else %}
                         <p>no</p>
                         {% endif %}
-                        {% assign counts = '011,005,003,001,007,009,002,013' | split: ',' %}
-                        {% assign counts=counts | sort_natural %}
-                        <p>{{counts | sort_natural|join:','}}</p>
                         {% for tag in site.tags %}
                         {% if tag[1].size > {{site.featured-condition-size}} %}
                         <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
