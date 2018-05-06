@@ -135,14 +135,14 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
                         <p>{{ '001' | floor }}</p>
-                        <p>{{ site.tags | map:"size"|join:','}}</p>
                         {% if '001' == '1' %}
                         <p>yes</p>
                         {% else %}
                         <p>no</p>
                         {% endif %}
-                        {% assign counts = '11,5,3,1,7,9,2,13' | split: ',' %}
+                        {% assign counts = '011,005,003,001,007,009,002,013' | split: ',' %}
                         {% assign counts=counts | sort_natural %}
                         <p>{{counts | sort|join:','}}</p>
                         <p>{{counts | sort_natural|join:','}}</p>
