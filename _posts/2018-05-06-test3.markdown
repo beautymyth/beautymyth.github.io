@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      "Test"
-subtitle:   "blog test"
+title:      "Test3"
+subtitle:   "blog test3"
 date:       2018-05-06 12:05
 author:     "BeautyMyth"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 multilingual: false
 tags:
-    - test
+    - test2
 ---
 
 > “Yeah It's on. test”
