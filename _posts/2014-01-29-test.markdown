@@ -37,8 +37,7 @@ tags:
 ![image](https://github.com/beautymyth/skilltree/blob/master/design%20pattern/images/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.png?raw=true)
 
 ## 代码示例
-```php
-
+```python
 /**
  * 水果块
  */
@@ -147,7 +146,6 @@ $objFruitIterator = new FruitIterator(6);
 $objTangHuLuJi = new TangHuLuJi($objFruitIterator);
 //输出：fruit1.fruit2.fruit3.fruit4.fruit5.fruit6.
 echo $objTangHuLuJi->create();
-
 ```
 
 ## 适用场景
