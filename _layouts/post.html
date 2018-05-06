@@ -136,7 +136,7 @@ layout: default
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         {% assign counts = '5,3,1,7,9,2' | split: ', ' %}
-                        {% counts=counts|sort %}
+                        {% assign counts=counts | sort %}
                         {% for count in counts %}
                         <p>{{count}}</p>
                         {% endfor %}
