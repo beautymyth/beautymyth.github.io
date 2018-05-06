@@ -37,6 +37,20 @@ tags:
 ![image](https://github.com/beautymyth/skilltree/blob/master/design%20pattern/images/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.png?raw=true)
 
 ## 代码示例
+```linux
+#获取安装文件
+[root@iZwz9i8fd8lio2yh3oerizZ redis-3.1.2] cd /bmsource/
+[root@iZwz9i8fd8lio2yh3oerizZ bmsource]# wget http://pecl.php.net/get/mcrypt-1.0.1.tgz
+[root@iZwz9i8fd8lio2yh3oerizZ bmsource]# tar -xvf mcrypt-1.0.1.tgz
+[root@iZwz9i8fd8lio2yh3oerizZ bmsource]# cd mcrypt-1.0.1
+[root@iZwz9i8fd8lio2yh3oerizZ mcrypt-1.0.1]# phpize
+[root@iZwz9i8fd8lio2yh3oerizZ mcrypt-1.0.1]# ./configure --with-php-config=/usr/local/php7.2.5/bin/php-config
+[root@iZwz9i8fd8lio2yh3oerizZ mcrypt-1.0.1]# make && make install
+[root@iZwz9i8fd8lio2yh3oerizZ mcrypt-1.0.1]# cp /usr/local/php7.2.5/lib/php/extensions/no-debug-zts-20170718/mcrypt.so /www/modules/mcrypt7.2.5.so
+#修改php.ini使用新的扩展，extension=mcrypt7.2.5.so
+[root@iZwz9i8fd8lio2yh3oerizZ redis-3.1.2]# vim /usr/local/php7.2.5/lib/php.ini 
+```
+
 ```php
 /**
  * 水果块
