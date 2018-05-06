@@ -141,7 +141,7 @@ layout: default
                         {% endfor %}
                         
                         {% assign counts = '11,5,3,1,7,9,2,10' | split: ',' %}
-                        {% assign counts=counts | sort %}
+                        {% assign counts=counts | sort_natural %}
                         {% for count in counts %}
                         <p>{{count}}</p>
                         {% endfor %}
