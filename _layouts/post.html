@@ -135,7 +135,11 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
+                        {% assign tags_count = "" %}
+                        {% for tag in site.tags %}
+                        {% assign tags_count = tags_count|append:','|append:tag[1].size %}
+                        {% endfor %}
+                        <p>{{ tags_count }}</p>
                         <p>{{ '001' | floor }}</p>
                         {% if '001' == '1' %}
                         <p>yes</p>
@@ -144,7 +148,6 @@ layout: default
                         {% endif %}
                         {% assign counts = '011,005,003,001,007,009,002,013' | split: ',' %}
                         {% assign counts=counts | sort_natural %}
-                        <p>{{counts | sort|join:','}}</p>
                         <p>{{counts | sort_natural|join:','}}</p>
                         {% for tag in site.tags %}
                         {% if tag[1].size > {{site.featured-condition-size}} %}
