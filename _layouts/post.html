@@ -136,7 +136,11 @@ layout: default
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <p>{{ site.tags | map:"size"|join:','}}</p>
-                        
+                        {% if '001' == '1' %}
+                        <p>yes</p>
+                        {% else %}
+                        <p>no</p>
+                        {% endif %}
                         {% assign counts = '11,5,3,1,7,9,2,10' | split: ',' %}
                         {% assign counts=counts | sort_natural %}
                         <p>{{counts | sort|join:','}}</p>
