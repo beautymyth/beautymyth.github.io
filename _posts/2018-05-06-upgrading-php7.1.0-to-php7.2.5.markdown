@@ -16,7 +16,7 @@ tags:
 
 ## 下载并安装php7.2.5
 
-### 1.下载安装文件
+#### 1.下载安装文件
 
 -O：表示将下载后的文件进行重命名
 ```linux
@@ -28,14 +28,14 @@ tags:
 [root@iZwz9i8fd8lio2yh3oerizZ bmsource]# tar -xvf php-7.2.5.tar.bz2 
 ```
 
-### 2.获取7.1.0版本的configure
+#### 2.获取7.1.0版本的configure
 这次只是php版本的升级，希望所有的扩展需求同7.1.0版本的，所以这里获取一下7.1.0安装的配置信息。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ bmsource]# php -i|grep configure
 Configure Command =>  './configure'  '--prefix=/usr/local/php '--with-apxs2=/www/bin/apxs' '--with-curl' '--with-freetype-dir' '--with-gd' '--with-gettext' '--with-iconv-dir' '--with-kerberos' '--with-libdir=lib64' '--with-libxml-dir' '--with-mysqli' '--with-openssl' '--with-pcre-regex' '--with-pdo-mysql' '--with-pdo-sqlite' '--with-pear' '--with-png-dir' '--with-xmlrpc' '--with-xsl' '--with-zlib' '--enable-fpm' '--enable-bcmath' '--enable-libxml' '--enable-inline-optimization' '--enable-gd-native-ttf' '--enable-mbregex' '--enable-mbstring' '--enable-opcache' '--enable-pcntl' '--enable-shmop' '--enable-soap' '--enable-sockets' '--enable-sysvsem' '--enable-xml' '--enable-zip'
 ```
 
-### 3.完成安装
+#### 3.完成安装
 通过上面获取到的配置可知，7.1.0版本的安装位置为<code>/usr/local/php</code>，所以将新版本安装到<code>/usr/local/php7.2.5</code>。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ bmsource]# cd php-7.2.5
@@ -44,13 +44,13 @@ Configure Command =>  './configure'  '--prefix=/usr/local/php '--with-apxs2=/www
 ```
 
 ## 修改配置
-### 1.php.ini
+#### 1.php.ini
 因为在configure的时候加了<code>--with-apxs2=/www/bin/apxs</code>配置，所以php安装完成后会自动更新<code>/www/modules/libphp7.so</code>。
 这时新安装的目录中还没有php.ini配置文件，可以将原来的配置文件复制过来。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ php-7.2.5]# cp /usr/local/php/lib/php.ini /usr/local/php7.2.5/lib/php.ini
 ```
-### 2.环境变量
+#### 2.环境变量
 使用php -v查看版本，发现还是之前的版本，此时需要修改PATH变量，将php路径修改为新版本的路径。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ ~]# php -v
@@ -73,7 +73,7 @@ PATH=/usr/local/php/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/
 ```
 ## 重新编译第三方扩展
 如果使用了原php版本编译的扩展，因为php升级了，所以相应的扩展也需要重新编译。
-### 1.redis扩展
+#### 1.redis扩展
 注意：phpize与php-config需要使用新版本的。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ bmsource]# tar -xvf redis-3.1.2.tgz 
@@ -90,7 +90,7 @@ PATH=/usr/local/php/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ redis-3.1.2]# vim /usr/local/php7.2.5/lib/php.ini 
 ```
-### 2.mcrypt扩展
+#### 2.mcrypt扩展
 注意：phpize与php-config需要使用新版本的。
 ```linux
 [root@iZwz9i8fd8lio2yh3oerizZ redis-3.1.2] cd /bmsource/
