@@ -135,6 +135,10 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        {% assign counts = '5,3,1,7,9,2' | split: ', ' %}
+                        {% for count in counts %}
+                        <p>{{count}}</p>
+                        {% endfor %}
                         <div>{{ site.tags | size }}</div>
                         {% for tag in site.tags %}
                         {% if tag[1].size > {{site.featured-condition-size}} %}
