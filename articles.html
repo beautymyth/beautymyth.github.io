@@ -31,6 +31,39 @@ header-img: "img/tag-bg.jpg"
             </blockquote>-->
 
             <!-- 标签列表 -->
+            {% assign date_year_month = "" %}
+            {% for post in site.posts %}
+                {% assign year_month = post.date | date:"%Y-%m" %}
+                {% assign date_year_month = date_year_month|append:year_month|append:',' %}
+            {% endfor %}
+            
+            {% assign date_year_month = date_year_month|split:','|uniq|sort_natural|reverse  %}
+            
+            {% for year_month in date_year_month %}
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
+                    <span class="tag-text">{{ tag[0] }}</span>
+                </span>
+                {% for post in site.posts %}
+                    {% assign year_month_post = post.date | date:"%Y-%m" %}
+                    {% if year_month ==year_month_post %}
+                        <div class="post-preview">
+                            <a href="{{ post.url | prepend: site.baseurl }}">
+                                <h2 class="post-title">
+                                    {{ post.title }}
+                                </h2>
+                                {% if post.subtitle %}
+                                <h3 class="post-subtitle">
+                                    {{ post.subtitle }}
+                                </h3>
+                                {% endif %}
+                            </a>
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% endfor %}
             <ul>
             {% for post in site.posts %}
                 <li class="listing-item">
