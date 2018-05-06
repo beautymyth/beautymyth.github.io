@@ -139,11 +139,11 @@ class TangHuLuJi {
 
 }
 
-//生成水果块
-$objFruitIterator = new FruitIterator(6);
-//串糖葫芦
-$objTangHuLuJi = new TangHuLuJi($objFruitIterator);
-//输出：fruit1.fruit2.fruit3.fruit4.fruit5.fruit6.
+//生成水果块<br>
+$objFruitIterator = new FruitIterator(6);<br>
+//串糖葫芦<br>
+$objTangHuLuJi = new TangHuLuJi($objFruitIterator);<br>
+//输出：fruit1.fruit2.fruit3.fruit4.fruit5.fruit6.<br>
 echo $objTangHuLuJi->create();
 ```
 
