@@ -39,27 +39,28 @@ layout: default
                 <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
                 <div class="tags">
                     {% assign tags_count_len = 8 %}
-                        {% assign tags_count = "" %}
-                        {% for tag in site.tags %}
-                            {% assign tags_size_len = tag[1].size|prepend:'0'|size %}
-                            {% assign tags_size_str = tag[1].size %}
-                            {% for i in (tags_size_len..tags_count_len) %}
-                                {% assign tags_size_str = tags_size_str|prepend:'0' %}
-                            {% endfor %}
-                            {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
+                    {% assign tags_count = "" %}
+                    {% for tag in site.tags %}
+                        {% assign tags_size_len = tag[1].size|prepend:'0'|size %}
+                        {% assign tags_size_str = tag[1].size %}
+                        {% for i in (tags_size_len..tags_count_len) %}
+                            {% assign tags_size_str = tags_size_str|prepend:'0' %}
                         {% endfor %}
+                        {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
+                    {% endfor %}
 
-                        {% assign tags_count = tags_count|split:','|uniq|sort_natural|reverse %}
-                        {% for count in tags_count %}
-                            {% assign count1 = count|floor %}
-                            {% for tag in site.tags %}
-                                {% if tag[1].size ==count1 %}
-                                <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                                    {{ tag[0] }}
-                                </a>
-                                {% endif %}
-                            {% endfor %}
+                    {% assign tags_count = tags_count|split:','|uniq|sort_natural|reverse %}
+                    {% for count in tags_count %}
+                        <p>{{count}}</p>
+                        {% assign count1 = count|floor %}
+                        {% for tag in site.tags %}
+                            {% if tag[1].size ==count1 %}
+                            <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                                {{ tag[0] }}
+                            </a>
+                            {% endif %}
                         {% endfor %}
+                    {% endfor %}
                 </div>
             </section>
             {% endif %}
