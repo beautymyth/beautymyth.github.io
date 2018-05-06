@@ -143,18 +143,18 @@ layout: default
                             {% for i in (tags_size_len..tags_count_len) %}
                                 {% assign tags_size_str = tags_size_str|prepend:'0' %}
                             {% endfor %}
-                        {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
+                            {% assign tags_count = tags_count|append:tags_size_str|append:',' %}
                         {% endfor %}
 
                         {% assign tags_count = tags_count|split:','|uniq|sort_natural|reverse %}
                         {% for count in tags_count %}
-                            {% assign count = count | floor %}
-                            <p>{{count}}</p>
+                            {% assign count1 = count|floor %}
+                            <p>{{count1}}</p>
                             <p>{{count | floor}}</p>
                             <p>{{count|plus:0 | floor}}</p>
                             <p>{{'00000002' | floor}}</p>
                             {% for tag in site.tags %}
-                                {% if tag[1].size ==count|floor %}
+                                {% if tag[1].size ==count1 %}
                                 <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
                                 </a>
