@@ -135,6 +135,11 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        {% assign all_categories = site.pages | map: "size" %}
+                        {% for count in all_categories %}
+                        <div style='color:red;'>{{count}}</div>
+                        {% endfor %}
+                        
                         {% assign counts = '11,5,3,1,7,9,2,10' | split: ',' %}
                         {% assign counts=counts | sort %}
                         {% for count in counts %}
