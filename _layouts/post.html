@@ -135,17 +135,15 @@ layout: default
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        {% assign all_categories = site.pages | map: "size" %}
+                        {% assign all_categories = site.tags | map: "size" %}
                         {% for count in all_categories %}
                         <div style='color:red;'>{{count}}</div>
                         {% endfor %}
                         
                         {% assign counts = '11,5,3,1,7,9,2,10' | split: ',' %}
                         {% assign counts=counts | sort_natural %}
-                        {% for count in counts %}
-                        <p>{{count}}</p>
-                        {% endfor %}
-                        <div>{{ site.tags | size }}</div>
+                        <p>{{counts | sort|join:','}}</p>
+                        <p>{{counts | sort_natural|join:','}}</p>
                         {% for tag in site.tags %}
                         {% if tag[1].size > {{site.featured-condition-size}} %}
                         <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
